@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+         <meta charset="UTF-8">
+         <title>Home Page</title>
+    </head>
+    <body>
+        <h1>Tellbooks</h1>
+        <h2>View tellbooks</h2>
+
+        <table>
+            <tr>
+                <th> ID</th>
+                <th> NAME</th>
+                <th> NUMBER</th>
+            </tr>
+            <tr th:each="tellbook: ${tellbooks}" >
+                <!--/*@thymesVar id="index" type=""*/-->
+                <td th:text="${tellbook.id}" ></td>
+                <td th:text="${tellbook.name}"></td>
+                <td th:text="${tellbook.number}"></td>
+            </tr>
+        </table>
+
+        <h2>Add a tellbook</h2>
+        <form action="/tellbooks" method="post">
+
+            Name: <input type="text" name="name"><br />
+            Number: <input type="number" step="any" name="number"><br />
+            <button type="submit">Add a tellbook</button>
+        </form>
+
+        <h2>delete person</h2>
+        <form action="/tellbooks/{id}" method="post">
+            <h2>delete contact a tellbook</h2>
+            id: <input type="number" step="any" id="id"><br />
+            <button type="submit">delete person</button>
+
+        </form>
+
+
+</body>
+</html>
